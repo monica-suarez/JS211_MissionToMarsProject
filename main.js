@@ -10,6 +10,8 @@ const jobTypes = {
 };
 
 // Your code will go here
+//creates a class for the ship and outputs a mission statement if vehicles has 
+//crew available to do the mission
 class Ship{
   constructor(name, type, ability){
     this.name = name;
@@ -17,7 +19,20 @@ class Ship{
     this.ability = ability;
     this.crew = [];
   }
+  missionStatement = () => {
+    if (this.crew.length == 0) {
+      return "Can't perform a mission yet.";
+      }
+      else if (this.crew.length != 0 && this.name =='Mars Ascent Vehicle') {
+        return "Ascend into low orbit"
+      }
+      else if (this.crew.length != 0 && this.name == 'Hermes')
+        return "Interplanetary Space Travel"
+    }  
 }
+//creates a class for a crew member and a function for them to enter a ship
+//once a crew member has entered the ship, they are added to the array for crew
+//once a crew member enters the crew, then a ship can go on its mission
 class CrewMember{
   constructor(name, job, specialSkill){
     this.name = name;
@@ -25,23 +40,26 @@ class CrewMember{
     this.specialSkill = specialSkill;
     this.ship = null;
   }
+  enterShip = (ship) =>{
+    this.ship = ship;
+    this.ship.crew.push(this);
+  }
 }
-const crewMember = [];
-const addCrewMember = (name, job, specialSkill) =>{
-  const newCrewMember = new CrewMember(name, job, specialSkill);
-  crewMember.push(newCrewMember);
-}
-addCrewMember();
-const enterShip = (name, type, ability) =>{
-  const newShip = new Ship(name, type ,ability);
-  crewMember.ship = newShip;
-}
-enterShip();
-// const addBike = (name, frame, wheels, seat, brakes, handlebars, reflectors) => {
-//   const newBike = new Bicycle(frame, wheels, seat, brakes, handlebars, reflectors)
-//   const rider = cyclists.filter(name)
-//   rider.bike = newBike
+
+//Code below not needed - went too far with the exercise
+// const crewMember = [];
+// const addCrewMember = (name, job, specialSkill) =>{
+//   const newCrewMember = new CrewMember(name, job, specialSkill);
+//   crewMember.push(newCrewMember);
+//   if(ship == null){
+//     addShip();
+//   }
 // }
+// const addShip = (name, type, ability) =>{
+//   const newShip = new Ship(name, type ,ability);
+//   crewMember.ship = newShip;
+// }
+
 
 
 
