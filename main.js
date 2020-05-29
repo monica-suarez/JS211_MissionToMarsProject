@@ -10,8 +10,38 @@ const jobTypes = {
 };
 
 // Your code will go here
-
-
+class Ship{
+  constructor(name, type, ability){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+}
+class CrewMember{
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job; 
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+}
+const crewMember = [];
+const addCrewMember = (name, job, specialSkill) =>{
+  const newCrewMember = new CrewMember(name, job, specialSkill);
+  crewMember.push(newCrewMember);
+}
+addCrewMember();
+const enterShip = (name, type, ability) =>{
+  const newShip = new Ship(name, type ,ability);
+  crewMember.ship = newShip;
+}
+enterShip();
+// const addBike = (name, frame, wheels, seat, brakes, handlebars, reflectors) => {
+//   const newBike = new Bicycle(frame, wheels, seat, brakes, handlebars, reflectors)
+//   const rider = cyclists.filter(name)
+//   rider.bike = newBike
+// }
 
 
 
