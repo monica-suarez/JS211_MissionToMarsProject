@@ -19,17 +19,18 @@ class Ship{
     this.ability = ability;
     this.crew = [];
   }
-  missionStatement = () => {
+  missionStatement(){
     if (this.crew.length == 0) {
       return "Can't perform a mission yet.";
-      }
-      else if (this.crew.length != 0 && this.name =='Mars Ascent Vehicle') {
-        return "Ascend into low orbit"
-      }
-      else if (this.crew.length != 0 && this.name == 'Hermes')
-        return "Interplanetary Space Travel"
-    }  
-}
+    }
+    else if (this.crew.length != 0 && this.name =='Mars Ascent Vehicle') {
+      return "Ascend into low orbit"
+    }
+    else if (this.crew.length != 0 && this.name == 'Hermes')
+      return "Interplanetary Space Travel"
+  }  
+  }
+
 //creates a class for a crew member and a function for them to enter a ship
 //once a crew member has entered the ship, they are added to the array for crew
 //once a crew member enters the crew, then a ship can go on its mission
@@ -40,7 +41,7 @@ class CrewMember{
     this.specialSkill = specialSkill;
     this.ship = null;
   }
-  enterShip = (ship) =>{
+  enterShip (ship){
     this.ship = ship;
     this.ship.crew.push(this);
   }
